@@ -16,9 +16,27 @@ const SignUp = (props: Props) => {
 
       {/* Input fields and submit button */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  space-y-6">
-        <CustomInput label={"Name"} placeholder="Enter your Name" />
-        <CustomInput label={"Email"} placeholder="Enter your Email" />
-        <CustomInput label={"Password"} placeholder="Enter your password" />
+        <CustomInput
+          type="text"
+          label={"Name"}
+          placeholder="Enter your Name"
+          value={""}
+          onChange={function (): void {}}
+        />
+        <CustomInput
+          type="email"
+          label={"Email"}
+          placeholder="Enter your Email"
+          value={""}
+          onChange={function (): void {}}
+        />
+        <CustomInput
+          type="password"
+          label={"Password"}
+          placeholder="Enter your password"
+          value={""}
+          onChange={function (): void {}}
+        />
         <div className="flex justify-center">
           <CustomButton text="SignUp" />
         </div>

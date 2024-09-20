@@ -1,14 +1,15 @@
-import React, { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
+import { TiArrowRightOutline } from "react-icons/ti";
 
 interface CustomInputProps {
   placeholder?: string;
-  type?: "text" | "password" | "email" | "number";
-  value?: string | number;
-  onChange?: () => void;
+  type: "text" | "password" | "email" | "number";
+  value: string | number;
+  onChange: (e: any) => void;
   style?: CSSProperties;
   label?: string | number;
+  isArrow?: boolean;
 }
-
 const CustomInput = ({
   placeholder,
   type,
@@ -16,6 +17,7 @@ const CustomInput = ({
   onChange,
   style,
   label,
+  isArrow,
 }: CustomInputProps) => {
   return (
     <div className=" w-[28em] h-[40px] bg-white  flex">
@@ -33,6 +35,9 @@ const CustomInput = ({
           onChange={onChange}
           style={style}
         />
+      </div>
+      <div className={`flex items-center mr-2 ${isArrow ? "flex" : "hidden"}`}>
+        <TiArrowRightOutline />
       </div>
     </div>
   );

@@ -20,7 +20,16 @@ const LandingPage = (props: Props) => {
           the world!
         </p>
         <div className="">
-          <CustomInput label={"Subscribe"} placeholder="Enter Your Email" />
+          <CustomInput
+            type="email"
+            label={"Subscribe"}
+            placeholder="Enter Your Email"
+            isArrow
+            value={""}
+            onChange={function (e: any): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
         </div>
       </div>
     </>
