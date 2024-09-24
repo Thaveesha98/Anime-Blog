@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../../common/CustomInput";
 import CustomButton from "../../common/CustomButton";
 
 type Props = {};
 
 const SignUp = (props: Props) => {
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    console.log("Form submit", userData);
+
+    setUserData({
+      name: "",
+      email: "",
+      password: "",
+    });
+  };
   return (
     <>
       {/* Background Image */}
@@ -14,33 +30,41 @@ const SignUp = (props: Props) => {
         className="w-[100vw] h-[100dvh] absolute -z-10"
       />
 
-      {/* Input fields and submit button */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  space-y-6">
+      {/* signup form */}
+      <form
+        onSubmit={handleSubmit}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  space-y-6">
         <CustomInput
           type="text"
           label={"Name"}
           placeholder="Enter your Name"
-          value={""}
-          onChange={function (): void {}}
+          value={userData.name}
+          onChange={(e: any) =>
+            setUserData({ ...userData, name: e.target.value })
+          }
         />
         <CustomInput
           type="email"
           label={"Email"}
           placeholder="Enter your Email"
-          value={""}
-          onChange={function (): void {}}
+          value={userData.email}
+          onChange={(e: any) =>
+            setUserData({ ...userData, email: e.target.value })
+          }
         />
         <CustomInput
           type="password"
           label={"Password"}
           placeholder="Enter your password"
-          value={""}
-          onChange={function (): void {}}
+          value={userData.password}
+          onChange={(e: any) =>
+            setUserData({ ...userData, password: e.target.value })
+          }
         />
         <div className="flex justify-center">
-          <CustomButton text="SignUp" />
+          <CustomButton type={"submit"} text="SignUp" />
         </div>
-      </div>
+      </form>
     </>
   );
 };

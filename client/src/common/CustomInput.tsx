@@ -36,9 +36,11 @@ const CustomInput = ({
           style={style}
         />
       </div>
-      <div className={`flex items-center mr-2 ${isArrow ? "flex" : "hidden"}`}>
-        <TiArrowRightOutline />
-      </div>
+      <button
+        type="submit"
+        className={`flex items-center mr-2 ${isArrow ? "flex" : "hidden"}`}>
+        {} <TiArrowRightOutline />
+      </button>
     </div>
   );
 };

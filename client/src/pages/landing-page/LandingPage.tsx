@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../../common/CustomInput";
 
 type Props = {};
 
 const LandingPage = (props: Props) => {
+  const [subscribe, setSubscribe] = useState({
+    email: "",
+  });
+  const handleSubscribe = (e: any) => {
+    e.preventDefault();
+
+    // Handle form submission logic here
+
+    console.log("Subscribed to newsletter", subscribe);
+
+    setSubscribe({
+      email: "",
+    });
+  };
+
   return (
     <>
       <img
@@ -19,18 +34,18 @@ const LandingPage = (props: Props) => {
           Get the latest news on your favorite manga, anime and manhwa around
           the world!
         </p>
-        <div className="">
+        <form onSubmit={handleSubscribe}>
           <CustomInput
             type="email"
             label={"Subscribe"}
             placeholder="Enter Your Email"
             isArrow
-            value={""}
-            onChange={function (e: any): void {
-              throw new Error("Function not implemented.");
-            }}
+            value={subscribe.email}
+            onChange={(e: any) =>
+              setSubscribe({ ...subscribe, email: e.target.value })
+            }
           />
-        </div>
+        </form>
       </div>
     </>
   );
