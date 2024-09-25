@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6", // or es2015
+    "module": "commonjs", // Change to commonjs for Node.js
+    "strict": true,
+    "esModuleInterop": true, // Enable esModuleInterop
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
