@@ -23,6 +23,7 @@ const validateEnv = (): EnvVariables => {
     "DB_DIALECT",
   ];
 
+  // Check if all required environment variables are set
   for (const envVar of requiredEnvs) {
     if (!process.env[envVar]) {
       throw new Error(`Missing required environment variable: ${envVar}`);
@@ -32,9 +33,10 @@ const validateEnv = (): EnvVariables => {
   return process.env as unknown as EnvVariables;
 };
 
+// Get validated environment variables and initialize Sequelize instance accordingly
 const env = validateEnv();
 
-// Create a Sequelize instance using the validated environment variables
+// Initialize Sequelize instance with the provided environment variables
 const sequelize = new Sequelize(env.DB_NAME, env.DB_USERNAME, env.DB_PASSWORD, {
   host: env.DB_HOST,
   dialect: env.DB_DIALECT,

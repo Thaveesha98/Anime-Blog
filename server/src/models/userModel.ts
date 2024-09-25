@@ -8,6 +8,7 @@ class User extends Model {
   public password!: string;
 }
 
+// Define the User model with the required fields and options
 User.init(
   {
     email: {

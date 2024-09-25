@@ -16,12 +16,15 @@ const AuthController = {
   },
 
   // login: async (req: Request, res: Response) => {
-  //     try {
-  //         const { token } = await AuthService.login(req.body.username, req.body.password);
-  //         res.json({ token });
-  //     } catch (error:any) {
-  //         res.status(401).json({ message: error.message });
-  //     }
+  //   try {
+  //     const { token } = await AuthService.login(
+  //       req.body.username,
+  //       req.body.password
+  //     );
+  //     res.json({ token });
+  //   } catch (error: any) {
+  //     res.status(401).json({ message: error.message });
+  //   }
   // },
 };
 

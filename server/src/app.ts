@@ -3,10 +3,15 @@ import dotenv from "dotenv";
 import sequelize from "./config/dbConfig";
 import authRoutes from "./routes/authRoutes";
 
+// Connect to the database
 dotenv.config();
+// Define the express app instance and configure it with middleware and routes.
 const app = express();
 
+// Middleware to parse JSON requests
 app.use(express.json());
+
+// Define routes
 app.use("/api/auth", authRoutes);
 
 // Initialize database
@@ -15,6 +20,7 @@ sequelize
   .then(() => console.log("Database synchronized"))
   .catch((err) => console.error("Database sync error: ", err));
 
+// Start the server on the specified port
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
