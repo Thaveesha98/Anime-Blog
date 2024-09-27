@@ -9,9 +9,16 @@ const AuthController = {
         req.body.username,
         req.body.password
       );
-      res.status(201).json(user);
+      res.status(200).json({
+        isError: false,
+        message: "User registered successfully",
+        user,
+      });
     } catch (error: any) {
-      res.status(400).json({ message: error.message });
+      res.status(404).json({
+        isError: true,
+        message: error.message,
+      });
     }
   },
 

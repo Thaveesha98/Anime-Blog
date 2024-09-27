@@ -3,6 +3,7 @@ import { TiArrowRightOutline } from "react-icons/ti";
 
 interface CustomInputProps {
   placeholder?: string;
+  name?: string;
   type: "text" | "password" | "email" | "number";
   value: string | number;
   onChange: (e: any) => void;
@@ -12,6 +13,7 @@ interface CustomInputProps {
 }
 const CustomInput = ({
   placeholder,
+  name,
   type,
   value,
   onChange,
@@ -29,6 +31,7 @@ const CustomInput = ({
       <div className="w-[74%]">
         <input
           className="flex-grow size-full  outline-none "
+          name={name}
           type={type}
           placeholder={placeholder}
           value={value}

@@ -5,12 +5,12 @@ import authRoutes from "./routes/authRoutes";
 
 // Connect to the database
 dotenv.config();
+
 // Define the express app instance and configure it with middleware and routes.
 const app = express();
-
-// Middleware to parse JSON requests
+const cors = require("cors");
 app.use(express.json());
-
+app.use(cors());
 // Define routes
 app.use("/api/auth", authRoutes);
 
